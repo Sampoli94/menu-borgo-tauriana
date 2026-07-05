@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borgo Tauriana - Pizzeria & Tradizione</title>
-    <!-- Font Eleganti da Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans per un look geometrico e pulito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2? href=https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,295 +15,264 @@
             margin: 0;
             padding: 0;
         }
-        :root {
-            --bg-color: #0d110e; /* Verde oliva profondo, rilassante */
-            --card-bg: #141a16; /* Schede tono su tono */
-            --primary-gold: #dfc294; /* Oro caldo antico per i titoli */
-            --text-main: #f0e6df; /* Bianco pietra caldo e riposante */
-            --text-muted: #9ba89f; /* Grigio-verde per le descrizioni */
-            --border-color: #222c25;
-        }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            background-color: #fafafa; /* Fondo bianco latte pulitissimo */
+            color: #111111; /* Testo nero deciso */
+            line-height: 1.5;
+            padding-bottom: 60px;
         }
-        /* Header stile sito web premium */
-        .hero {
+        /* Header minimale */
+        .header {
             text-align: center;
-            padding: 90px 20px 40px 20px;
-            background: linear-gradient(180deg, rgba(20,26,22,0.6) 0%, rgba(13,17,14,0) 100%);
+            padding: 40px 20px 20px 20px;
+            background-color: #ffffff;
         }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 38pt;
-            font-weight: 500;
-            color: var(--primary-gold);
-            letter-spacing: 3px;
-            margin-bottom: 8px;
+        .header h1 {
+            font-size: 24pt;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
         }
-        .hero p {
-            font-family: 'Playfair Display', serif;
-            font-size: 15pt;
-            color: var(--text-muted);
-            font-style: italic;
+        .header p {
+            font-size: 11pt;
+            color: #666666;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 4px;
         }
-        /* Navigazione rapida fissa in alto */
-        .nav-bar {
+        /* Slider Categorie stile Instagram / Gioja's */
+        .categories-badge-container {
+            display: flex;
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            sticky-top: 0;
             position: sticky;
             top: 0;
-            background-color: rgba(13, 17, 14, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-            white-space: nowrap;
-            overflow-x: auto;
-            padding: 15px;
-            text-align: center;
-            -webkit-overflow-scrolling: touch;
         }
-        .nav-bar::-webkit-scrollbar {
-            display: none; /* Nasconde scrollbar */
+        .categories-badge-container::-webkit-scrollbar {
+            display: none;
         }
-        .nav-link {
-            display: inline-block;
-            color: var(--text-muted);
+        .cat-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 11pt;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 6px 16px;
-            margin: 0 4px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            margin-right: 20px;
+            min-width: 70px;
         }
-        .nav-link:active, .nav-link:hover {
-            color: var(--primary-gold);
-            background-color: var(--card-bg);
+        .cat-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 6px;
+            border: 2px solid #000000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .cat-label {
+            font-size: 9pt;
+            font-weight: 600;
+            color: #111111;
+            text-transform: uppercase;
         }
         /* Contenitore principale */
-        .menu-container {
-            width: 100%;
-            max-width: 750px;
+        .main-content {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px 20px 80px 20px;
+            padding: 20px;
         }
-        /* Sezione / Slide elegante */
-        .section-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 45px 35px;
-            margin-bottom: 50px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            scroll-margin-top: 80px; /* Evita che la barra copra il titolo */
+        /* Sezioni di Menu */
+        .menu-section {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid #f0f0f0;
+            scroll-margin-top: 110px;
         }
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24pt;
-            color: var(--primary-gold);
-            margin-bottom: 35px;
-            text-align: center;
-            letter-spacing: 1px;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
-            background-color: var(--primary-gold);
-            margin: 12px auto 0 auto;
-            opacity: 0.6;
-        }
-        /* Sotto-sezioni interne */
-        .subsection-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 15pt;
-            color: var(--primary-gold);
-            margin: 30px 0 20px 0;
-            border-left: 2px solid var(--primary-gold);
-            padding-left: 12px;
+            font-size: 16pt;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #111111;
+            padding-bottom: 8px;
+            display: inline-block;
         }
-        /* Lista Piatti */
+        /* Singolo piatto */
         .menu-item {
-            margin-bottom: 28px;
+            margin-bottom: 22px;
+            border-bottom: 1px dashed #eedddd;
+            padding-bottom: 15px;
         }
-        .item-main {
+        .menu-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
         }
         .item-name {
-            font-size: 13pt;
+            font-size: 12pt;
             font-weight: 600;
-            color: var(--text-main);
-            padding-right: 15px;
-            letter-spacing: 0.3px;
+            color: #000000;
         }
         .item-price {
-            font-size: 13pt;
-            font-weight: 500;
-            color: var(--primary-gold);
-            white-space: nowrap;
-        }
-        .item-description {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #000000;
+            background-color: #f0f0f0;
+            padding: 2px 10px;
+            border-radius: 12px;
             font-size: 10.5pt;
-            color: var(--text-muted);
-            margin-top: 5px;
-            font-weight: 300;
         }
-        /* Note piè di pagina */
-        .footer-info {
-            font-size: 9.5pt;
-            color: var(--text-muted);
+        .item-desc {
+            font-size: 10pt;
+            color: #666666;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        /* Sotto sezioni interne per le bevande */
+        .sub-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #444444;
+            margin: 20px 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+        /* Footer info */
+        .footer-banner {
+            background-color: #111111;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 25px 20px;
             text-align: center;
-            line-height: 1.8;
-            margin-top: 40px;
-            opacity: 0.8;
-            padding-top: 25px;
-            border-top: 1px dashed var(--border-color);
+            font-size: 9.5pt;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-    <!-- COPANDINA SITO VETRINA -->
-    <div class="hero">
+    <!-- LOGO / HEADER MINIMALE -->
+    <div class="header">
         <h1>Borgo Tauriana</h1>
         <p>Pizzeria & Tradizione</p>
     </div>
 
-    <!-- NAVIGAZIONE RAPIDA INTERATTIVA -->
-    <div class="nav-bar">
-        <a href="#antipasti" class="nav-link">Antipasti</a>
-        <a href="#pizze" class="nav-link">Le Pizze</a>
-        <a href="#bevande" class="nav-link">Bevande</a>
-        <a href="#dessert" class="nav-link">Desserts</a>
+    <!-- BOTTONI DI NAVIGAZIONE MODERNI (STILE INSTAGRAM STORIES) -->
+    <div class="categories-badge-container">
+        <a href="#antipasti" class="cat-badge">
+            <div class="cat-circle">🥗</div>
+            <span class="cat-label">Antipasti</span>
+        </a>
+        <a href="#pizze" class="cat-badge">
+            <div class="cat-circle">🍕</div>
+            <span class="cat-label">Le Pizze</span>
+        </a>
+        <a href="#bevande" class="cat-badge">
+            <div class="cat-circle">🍹</div>
+            <span class="cat-label">Bevande</span>
+        </a>
+        <a href="#dessert" class="cat-badge">
+            <div class="cat-circle">🍰</div>
+            <span class="cat-label">Desserts</span>
+        </a>
     </div>
 
-    <!-- CONTENUTI MENU -->
-    <div class="menu-container">
+    <!-- SEZIONI MENU -->
+    <div class="main-content">
 
         <!-- ANTIPASTI -->
-        <div class="section-card" id="antipasti">
+        <div class="menu-section" id="antipasti">
             <h2 class="section-title">Antipasti</h2>
-            
-            <div class="menu-item">
-                <div class="item-main">
-                    <span class="item-name">Antipasto Casa</span>
-                    <span class="item-price">12,00 €</span>
-                </div>
-                <div class="item-description">Selezione di specialità locali</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-main">
-                    <span class="item-name">Tagliere Salumi e Formaggi</span>
-                    <span class="item-price">15,00 €</span>
-                </div>
-                <div class="item-description">Selezione del territorio</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-main">
-                    <span class="item-name">Patate e Würstel</span>
-                    <span class="item-price">5,00 €</span>
-                </div>
-                <div class="item-description">Patate fritte con würstel</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-main">
-                    <span class="item-name">Patatine Fritte</span>
-                    <span class="item-price">4,00 €</span>
-                </div>
-                <div class="item-description">Porzione classica</div>
-            </div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Antipasto Casa</span><span class="item-price">12,00 €</span></div><div class="item-desc">Selezione di specialità locali</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Tagliere Salumi e Formaggi</span><span class="item-price">15,00 €</span></div><div class="item-desc">Selezione del territorio</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Patate e Würstel</span><span class="item-price">5,00 €</span></div><div class="item-desc">Patate fritte con würstel</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Patatine Fritte</span><span class="item-price">4,00 €</span></div><div class="item-desc">Porzione classica</div></div>
         </div>
 
         <!-- LE PIZZE -->
-        <div class="section-card" id="pizze">
+        <div class="menu-section" id="pizze">
             <h2 class="section-title">Le Nostre Pizze</h2>
-            
-            <div class="menu-item"><div class="item-main"><span class="item-name">Marinara</span><span class="item-price">5,00 €</span></div><div class="item-description">Pomodoro, aglio, origano</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Margherita</span><span class="item-price">6,00 €</span></div><div class="item-description">Pomodoro, mozzarella, olio, basilico</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Diavola</span><span class="item-price">8,00 €</span></div><div class="item-description">Pomodoro, mozzarella, salame piccante, 'nduja</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Caprese</span><span class="item-price">8,00 €</span></div><div class="item-description">Base bianca, mozzarella, pomodorini</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Cotto e Funghi</span><span class="item-price">9,00 €</span></div><div class="item-description">Pomodoro, mozzarella, cotto, funghi</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Würstel e Patatine</span><span class="item-price">9,00 €</span></div><div class="item-description">Pomodoro, mozzarella, würstel, patatine</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Bufala</span><span class="item-price">9,00 €</span></div><div class="item-description">Pomodoro, mozzarella di bufala, basilico</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Tonno e Cipolla</span><span class="item-price">9,00 €</span></div><div class="item-description">Pomodoro, mozzarella, tonno, cipolla</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Napoletana</span><span class="item-price">8,00 €</span></div><div class="item-description">Pomodoro, mozzarella, acciughe, olive</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Formaggiosa</span><span class="item-price">9,00 €</span></div><div class="item-description">Mozzarella, gorgonzola, fontina, parmigiano</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Piky</span><span class="item-price">9,00 €</span></div><div class="item-description">Pomodoro, mozzarella, 'nduja, olive verdi, tonno, cipolla</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Pitipi Patapà</span><span class="item-price">10,00 €</span></div><div class="item-description">Mozzarella, radicchio, gorgonzola, grana a scaglie, pancetta all'uscita</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Patate e Pancetta</span><span class="item-price">9,00 €</span></div><div class="item-description">Mozzarella, patate, pancetta</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Estiva</span><span class="item-price">12,00 €</span></div><div class="item-description">Pomodoro, mozzarella, rucola, pomodorini, grana, prosciutto crudo, glassa di aceto</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Capricciosa</span><span class="item-price">10,00 €</span></div><div class="item-description">Pomodoro, mozzarella, cotto, funghi, carciofi, olive</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Speck e Funghi</span><span class="item-price">10,00 €</span></div><div class="item-description">Mozzarella, speck, funghi, scamorza</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Vegetariana</span><span class="item-price">10,00 €</span></div><div class="item-description">Pomodoro, mozzarella, melanzane, zucchine</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Marinara</span><span class="item-price">5,00 €</span></div><div class="item-desc">Pomodoro, aglio, origano</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Margherita</span><span class="item-price">6,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, olio, basilico</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Diavola</span><span class="item-price">8,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, salame piccante, 'nduja</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Caprese</span><span class="item-price">8,00 €</span></div><div class="item-desc">Base bianca, mozzarella, pomodorini</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Cotto e Funghi</span><span class="item-price">9,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, cotto, funghi</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Würstel e Patatine</span><span class="item-price">9,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, würstel, patatine</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Bufala</span><span class="item-price">9,00 €</span></div><div class="item-desc">Pomodoro, mozzarella di bufala, basilico</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Tonno e Cipolla</span><span class="item-price">9,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, tonno, cipolla</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Napoletana</span><span class="item-price">8,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, acciughe, olive</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Formaggiosa</span><span class="item-price">9,00 €</span></div><div class="item-desc">Mozzarella, gorgonzola, fontina, parmigiano</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Piky</span><span class="item-price">9,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, 'nduja, olive verdi, tonno, cipolla</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Pitipi Patapà</span><span class="item-price">10,00 €</span></div><div class="item-desc">Mozzarella, radicchio, gorgonzola, grana a scaglie, pancetta all'uscita</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Patate e Pancetta</span><span class="item-price">9,00 €</span></div><div class="item-desc">Mozzarella, patate, pancetta</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Estiva</span><span class="item-price">12,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, rucola, pomodorini, grana, prosciutto crudo, glassa di aceto</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Capricciosa</span><span class="item-price">10,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, cotto, funghi, carciofi, olive</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Speck e Funghi</span><span class="item-price">10,00 €</span></div><div class="item-desc">Mozzarella, speck, funghi, scamorza</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Vegetariana</span><span class="item-price">10,00 €</span></div><div class="item-desc">Pomodoro, mozzarella, melanzane, zucchine</div></div>
         </div>
 
         <!-- BEVANDE -->
-        <div class="section-card" id="bevande">
+        <div class="menu-section" id="bevande">
             <h2 class="section-title">Bevande</h2>
             
-            <h3 class="subsection-title">Analcolici & Birre</h3>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Coca-Cola (Lattina)</span><span class="item-price">2,50 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Fanta (Lattina)</span><span class="item-price">2,50 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Coca-Cola in Vetro</span><span class="item-price">3,50 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Chinotto Lurisia</span><span class="item-price">4,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Chinotto San Pellegrino</span><span class="item-price">2,50 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Acqua</span><span class="item-price">2,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Nastro Azzurro</span><span class="item-price">3,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Ichnusa</span><span class="item-price">3,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Gradisca Amarcord</span><span class="item-price">7,00 €</span></div></div>
+            <h3 class="sub-title">Analcolici & Birre</h3>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Coca-Cola (Lattina)</span><span class="item-price">2,50 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Fanta (Lattina)</span><span class="item-price">2,50 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Coca-Cola in Vetro</span><span class="item-price">3,50 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Chinotto Lurisia</span><span class="item-price">4,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Chinotto San Pellegrino</span><span class="item-price">2,50 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Acqua</span><span class="item-price">2,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Nastro Azzurro</span><span class="item-price">3,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Ichnusa</span><span class="item-price">3,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Gradisca Amarcord</span><span class="item-price">7,00 €</span></div></div>
 
-            <h3 class="subsection-title">I Vini della Casa & Locali</h3>
-            <div class="menu-item">
-                <div class="item-description" style="font-size: 12pt; color: var(--text-main); font-style: italic; line-height: 1.8;">
-                    Librandi Bianco • Librandi Rosé • Vino Rosso Locale • Vino Bianco Locale
-                </div>
-            </div>
+            <h3 class="sub-title">I Vini della Casa & Locali</h3>
+            <div class="menu-item"><div class="item-desc" style="color:#111; font-style:italic;">Librandi Bianco • Librandi Rosé • Vino Rosso Locale • Vino Bianco Locale</div></div>
 
-            <h3 class="subsection-title">Le Bollicine</h3>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Naonis Prosecco Extra Dry</span><span class="item-price">15,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Cà del Cino Extra Dry</span><span class="item-price">15,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Blanc de Blancs Millesimato</span><span class="item-price">10,00 €</span></div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Berlucchi Cuvée Imperiale</span><span class="item-price">30,00 €</span></div></div>
+            <h3 class="sub-title">Le Bollicine</h3>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Naonis Prosecco Extra Dry</span><span class="item-price">15,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Cà del Cino Extra Dry</span><span class="item-price">15,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Blanc de Blancs Millesimato</span><span class="item-price">10,00 €</span></div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Berlucchi Cuvée Imperiale</span><span class="item-price">30,00 €</span></div></div>
         </div>
 
-        <!-- DESSERT & LIQUORI -->
-        <div class="section-card" id="dessert">
+        <!-- DESSERT -->
+        <div class="menu-section" id="dessert">
             <h2 class="section-title">Desserts & Digestivi</h2>
             
-            <h3 class="subsection-title">Dolci & Gelati</h3>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Dessert del Giorno</span><span class="item-price">6,00 €</span></div><div class="item-description">Dolce della casa</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Tartufo di Pizzo</span><span class="item-price">5,00 €</span></div><div class="item-description">Gusto Pistacchio</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Nocciola Imbottita</span><span class="item-price">5,00 €</span></div><div class="item-description">Specialità di Pizzo</div></div>
-            <div class="menu-item"><div class="item-main"><span class="item-name">Tartufo Bianco</span><span class="item-price">5,00 €</span></div><div class="item-description">Specialità di Pizzo</div></div>
+            <h3 class="sub-title">Dolci & Gelati</h3>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Dessert del Giorno</span><span class="item-price">6,00 €</span></div><div class="item-desc">Dolce della casa</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Tartufo di Pizzo</span><span class="item-price">5,00 €</span></div><div class="item-desc">Gusto Pistacchio</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Nocciola Imbottita</span><span class="item-price">5,00 €</span></div><div class="item-desc">Specialità di Pizzo</div></div>
+            <div class="menu-item"><div class="item-header"><span class="item-name">Tartufo Bianco</span><span class="item-price">5,00 €</span></div><div class="item-desc">Specialità di Pizzo</div></div>
 
-            <h3 class="subsection-title">Liquori & Digestivi</h3>
-            <div class="menu-item">
-                <div class="item-description" style="font-size: 11pt; line-height: 2; color: var(--text-main);">
-                    Amaro Silano (4,00 €) • Amaro Borsci (3,00 €) • Amaro del Capo (3,00 €) • Amaro Jägermeister (4,00 €) <br>
-                    Limoncello (3,00 €) • Crema di Limoncello (4,00 €) • Grappa Bianca 903 (4,00 €) • Grappa Barricata 903 (4,00 €)
-                </div>
-            </div>
+            <h3 class="sub-title">Liquori & Digestivi</h3>
+            <div class="menu-item"><div class="item-desc" style="color:#111; line-height: 1.8;">Amaro Silano (4,00 €) • Amaro Borsci (3,00 €) • Amaro del Capo (3,00 €) • Amaro Jägermeister (4,00 €) • Limoncello (3,00 €) • Crema di Limoncello (4,00 €) • Grappa Bianca 903 (4,00 €) • Grappa Barricata 903 (4,00 €)</div></div>
+        </div>
 
-            <!-- NOTE LEGALI / INFORMAZIONI -->
-            <div class="footer-info">
-                Coperto: 2,00 € • Ingredienti aggiuntivi: +1,00 € • Aggiunta bufala: +2,00 € <br>
-                <strong>In caso di allergie o intolleranze alimentari, ti preghiamo di segnalarlo allo staff.</strong>
-            </div>
+        <!-- BANNER INFORMATIVO FINALE -->
+        <div class="footer-banner">
+            <p>Coperto: 2,00 € • Ingredienti aggiuntivi: +1,00 € • Aggiunta bufala: +2,00 €</p>
+            <p style="margin-top: 10px; font-weight: 300; opacity: 0.9;">In caso di allergie o intolleranze alimentari, ti preghiamo di segnalarlo allo staff.</p>
         </div>
 
     </div>
