@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borgo Tauriana - Menu</title>
-    <!-- Font di lusso da Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,204 +14,253 @@
             margin: 0;
             padding: 0;
         }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #fcfbfa; /* Bianco caldo, rilassante per gli occhi */
+        html, body {
+            background-color: #fcfbfa;
             color: #1c1c1c;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            /* Forza lo scorrimento blocco per blocco stile storie */
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        /* Barra superiore fissa con Musica Funzionante */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(252, 251, 250, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            padding: 30px 20px;
+            gap: 8px;
+            z-index: 1000;
+            border-bottom: 1px solid #f0ede9;
         }
-
-        /* Tasto Musica d'Atmosfera Minimalista */
-        .music-toggle {
-            background: none;
-            border: 1px solid #1c1c1c;
-            color: #1c1c1c;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 500;
+        .top-bar span {
+            font-size: 10px;
             letter-spacing: 2px;
-            cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            color: #7c7c7c;
         }
-        .music-toggle.playing {
-            background-color: #1c1c1c;
-            color: #fcfbfa;
+        audio {
+            height: 30px;
+            width: 220px;
+            outline: none;
         }
 
-        /* Intestazione raffinata */
-        .brand-header {
+        /* Slide a tutto schermo */
+        .slide-screen {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 30px 40px 30px;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+        }
+
+        /* Copertina Iniziale */
+        .hero-content {
             text-align: center;
-            margin: 60px 0 50px 0;
         }
-        .brand-header h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #121212;
         }
-        .brand-header p {
-            font-size: 11px;
+        .hero-content p {
+            font-size: 12px;
             color: #7c7c7c;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-top: 10px;
+            margin-top: 12px;
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b5b5b5;
+            animation: bounce 2s infinite;
         }
 
-        /* Lista dei Link - Stile Menu di un Hotel di Lusso */
-        .links-list {
+        /* Contenitore Menu Elegante interno alle slide */
+        .menu-box {
             width: 100%;
-            max-width: 360px;
+            max-width: 500px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            margin-bottom: 60px;
+            gap: 20px;
         }
-
-        .menu-link {
+        .slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e8e6e3;
+            padding-bottom: 10px;
+        }
+        .menu-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 22px 10px;
-            text-decoration: none;
-            color: #1c1c1c;
-            border-bottom: 1px solid #e8e6e3;
-            transition: opacity 0.2s ease;
+            align-items: baseline;
+            border-bottom: 1px dashed #e8e6e3;
+            padding-bottom: 8px;
         }
-        .menu-link:last-child {
-            border-bottom: 2px solid #1c1c1c; /* Evidenzia l'azione del menu completo */
+        .item-info {
+            padding-right: 15px;
         }
-        .menu-link:active {
-            opacity: 0.5;
-        }
-
-        .link-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .link-arrow {
+        .item-name {
             font-size: 14px;
-            font-weight: 300;
+            font-weight: 600;
+        }
+        .item-desc {
+            font-size: 11px;
             color: #7c7c7c;
+            margin-top: 2px;
+        }
+        .item-price {
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .footer {
+        /* Footer info */
+        .footer-note {
             font-size: 10px;
-            color: #a0a0a0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: auto;
-            margin-bottom: 20px;
+            color: #999;
+            text-align: center;
+            line-height: 1.6;
+            margin-top: 15px;
         }
 
-        /* Iframe nascosto per la musica */
-        #youtube-player {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border: 0;
-            visibility: hidden;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- LOGO CENTRALE -->
-    <div class="brand-header">
-        <h1>Borgo Tauriana</h1>
-        <p>Pizzeria & Tradizione</p>
-        
-        <!-- TASTO MUSICA (Sotto il titolo, pulito) -->
-        <button class="music-toggle" id="music-btn" onclick="toggleMusic()">
-            Ascolta la location
-        </button>
+    <!-- BARRA AUDIO SUPERIORE (Garantisce il funzionamento su iOS/Android) -->
+    <div class="top-bar">
+        <span>Sottofondo Rilassante</span>
+        <audio controls loop id="audio-player">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
-    <!-- PLAYER YOUTUBE NASCOSTO (Traccia Lounge / Relax di sottofondo) -->
-    <div id="player-container"></div>
+    <!-- SCHERMATA 1: COPERTINA -->
+    <section class="slide-screen">
+        <div class="hero-content">
+            <h1>Borgo Tauriana</h1>
+            <p>Pizzeria & Tradizione</p>
+        </div>
+        <div class="scroll-hint">Scorri giù per il menu ↓</div>
+    </section>
 
-    <!-- LISTA LINK MINIMALISTA -->
-    <div class="links-list">
-        
-        <!-- Inserisci i tuoi link al posto del simbolo # -->
-        <a href="#" class="menu-link">
-            <span class="link-title">Antipasti</span>
-            <span class="link-arrow">— scopri</span>
-        </a>
+    <!-- SCHERMATA 2: ANTIPASTI -->
+    <section class="slide-screen">
+        <div class="menu-box">
+            <h2 class="slide-title">Antipasti</h2>
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Antipasto Casa</div>
+                    <div class="item-desc">Selezione di specialità locali</div>
+                </div>
+                <div class="item-price">12,00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Tagliere Salumi e Formaggi</div>
+                    <div class="item-desc">Selezione del territorio</div>
+                </div>
+                <div class="item-price">15,00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Patate e Würstel</div>
+                    <div class="item-desc">Patate fritte con würstel</div>
+                </div>
+                <div class="item-price">5,00 €</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Patatine Fritte</div>
+                    <div class="item-desc">Porzione classica</div>
+                </div>
+                <div class="item-price">4,00 €</div>
+            </div>
+        </div>
+    </section>
 
-        <a href="#" class="menu-link">
-            <span class="link-title">Le Pizze</span>
-            <span class="link-arrow">— scopri</span>
-        </a>
+    <!-- SCHERMATA 3: LE PIZZE -->
+    <section class="slide-screen" style="height: auto; min-height: 100vh; scroll-snap-align: none;">
+        <div class="menu-box" style="padding: 20px 0;">
+            <h2 class="slide-title">Le Nostre Pizze</h2>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Marinara</div><div class="item-desc">Pomodoro, aglio, origano</div></div><div class="item-price">5,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Margherita</div><div class="item-desc">Pomodoro, mozzarella, olio, basilico</div></div><div class="item-price">6,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Diavola</div><div class="item-desc">Pomodoro, mozzarella, salame piccante, 'nduja</div></div><div class="item-price">8,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Caprese</div><div class="item-desc">Base bianca, mozzarella, pomodorini</div></div><div class="item-price">8,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Cotto e Funghi</div><div class="item-desc">Pomodoro, mozzarella, cotto, funghi</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Würstel e Patatine</div><div class="item-desc">Pomodoro, mozzarella, würstel, patatine</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Bufala</div><div class="item-desc">Pomodoro, mozzarella di bufala, basilico</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Tonno e Cipolla</div><div class="item-desc">Pomodoro, mozzarella, tonno, cipolla</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Napoletana</div><div class="item-desc">Pomodoro, mozzarella, acciughe, olive</div></div><div class="item-price">8,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Formaggiosa</div><div class="item-desc">Mozzarella, gorgonzola, fontina, parmigiano</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Piky</div><div class="item-desc">Pomodoro, mozzarella, 'nduja, olive verdi, tonno, cipolla</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Pitipi Patapà</div><div class="item-desc">Mozzarella, radicchio, gorgonzola, grana a scaglie, pancetta all'uscita</div></div><div class="item-price">10,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Patate e Pancetta</div><div class="item-desc">Mozzarella, patate, pancetta</div></div><div class="item-price">9,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Estiva</div><div class="item-desc">Pomodoro, mozzarella, rucola, pomodorini, grana, prosciutto crudo, glassa di aceto</div></div><div class="item-price">12,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Capricciosa</div><div class="item-desc">Pomodoro, mozzarella, cotto, funghi, carciofi, olive</div></div><div class="item-price">10,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Speck e Funghi</div><div class="item-desc">Mozzarella, speck, funghi, scamorza</div></div><div class="item-price">10,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Vegetariana</div><div class="item-desc">Pomodoro, mozzarella, melanzane, zucchine</div></div><div class="item-price">10,00 €</div></div>
+        </div>
+    </section>
 
-        <a href="#" class="menu-link">
-            <span class="link-title">Bevande & Cantina</span>
-            <span class="link-arrow">— scopri</span>
-        </a>
+    <!-- SCHERMATA 4: BEVANDE -->
+    <section class="slide-screen">
+        <div class="menu-box">
+            <h2 class="slide-title">Bevande & Cantina</h2>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Analcolici Lattina / Vetro</div><div class="item-desc">Coca-Cola, Fanta, Chinotto Lurisia/San Pellegrino</div></div><div class="item-price">da 2,50 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Birre</div><div class="item-desc">Nastro Azzurro, Ichnusa, Gradisca Amarcord</div></div><div class="item-price">da 3,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">I Vini della Casa & Locali</div><div class="item-desc">Librandi Bianco, Rosé, Rosso o Bianco Locale</div></div><div class="item-price">Selez.</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Le Bollicine</div><div class="item-desc">Naonis, Cà del Cino, Berlucchi Cuvée Imperiale</div></div><div class="item-price">da 10,00 €</div></div>
+        </div>
+    </section>
 
-        <a href="#" class="menu-link">
-            <span class="link-title">Desserts & Liquori</span>
-            <span class="link-arrow">— scopri</span>
-        </a>
+    <!-- SCHERMATA 5: DESSERTS & CONCLUSIONE -->
+    <section class="slide-screen">
+        <div class="menu-box">
+            <h2 class="slide-title">Desserts & Fine Serata</h2>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Dessert del Giorno</div><div class="item-desc">Dolce della casa delizioso</div></div><div class="item-price">6,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">I Tartufi di Pizzo</div><div class="item-desc">Pistacchio, Nocciola Imbottita, Tartufo Bianco</div></div><div class="item-price">5,00 €</div></div>
+            <div class="menu-item"><div class="item-info"><div class="item-name">Liquori & Digestivi</div><div class="item-desc">Silano, Borsci, Del Capo, Jägermeister, Limoncello, Grappe 903</div></div><div class="item-price">da 3,00 €</div></div>
+            
+            <div class="footer-note">
+                Coperto: 2,00 € • Ingredienti aggiuntivi: +1,00 € • Aggiunta bufala: +2,00 €<br>
+                <strong>In caso di allergie, ti preghiamo di segnalarlo allo staff.</strong>
+            </div>
+        </div>
+    </section>
 
-        <a href="#" class="menu-link" style="margin-top: 15px;">
-            <span class="link-title" style="font-weight: 600; font-style: normal;">Menu Completo PDF</span>
-            <span class="link-arrow">→</span>
-        </a>
-
-    </div>
-
-    <div class="footer">
-        Un'esperienza di assoluto relax
-    </div>
-
-    <!-- SCRIPT CARICAMENTO PLAYER YOUTUBE SENZA BLOCCHI BROWSER -->
     <script>
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player-container', {
-                height: '0',
-                width: '0',
-                videoId: 'jfKfPfyJRdk', // ID di una splendida traccia Lofi / Jazz rilassante per locali
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': 'jfKfPfyJRdk'
-                }
-            });
-        }
-
-        function toggleMusic() {
-            var btn = document.getElementById("music-btn");
-            if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
-                player.pauseVideo();
-                btn.innerText = "Ascolta la location";
-                btn.classList.remove("playing");
-            } else if (player) {
-                player.playVideo();
-                player.setVolume(30); // Volume basso ed elegante, non disturba la lettura
-                btn.innerText = "Musica: ON";
-                btn.classList.add("playing");
-            }
-        }
+        // Setta un volume soft di default non appena l'utente clicca su Play
+        document.getElementById('audio-player').volume = 0.3;
     </script>
-
 </body>
 </html>
