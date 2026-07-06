@@ -11,14 +11,12 @@
     
     <style>
         :root {
-            --bg-color: #faf8f5;
-            --text-dark: #222222;
-            --text-muted: #6e6b64;
-            --accent: #b85d38; /* Terracotta calda */
-            --accent-light: #e8a382;
-            --card-bg: #ffffff;
-            --border-color: #eeeae3;
-            --vinyl-color: #1a1a1a;
+            --bg-color: #fdfbf7;      /* Crema caldissimo ed elegante */
+            --text-dark: #1e1e1e;     /* Antracite morbido */
+            --text-muted: #7c776e;    /* Grigio caldo per descrizioni */
+            --accent: #be9c79;        /* Oro antico / Bronzo elegante */
+            --accent-dark: #a17f5c;
+            --border-color: #f2ede4;  /* Linee sottili color sabbia */
             --transition-speed: 0.3s;
         }
 
@@ -74,7 +72,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.65));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65));
             z-index: 2;
         }
 
@@ -87,71 +85,71 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 500;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             text-transform: uppercase;
             margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
             animation: fadeInUp 1s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 40px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
             animation: fadeInUp 1.2s ease-out;
         }
 
         .hero-btn {
-            background-color: var(--accent);
+            background-color: transparent;
             color: #ffffff;
-            padding: 14px 32px;
-            font-size: 0.95rem;
+            padding: 13px 36px;
+            font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            border: none;
+            border: 1px solid #ffffff;
             border-radius: 50px;
             cursor: pointer;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(184, 93, 56, 0.4);
             animation: fadeInUp 1.4s ease-out;
             text-decoration: none;
             display: inline-block;
         }
 
         .hero-btn:hover {
-            background-color: #9d4c2c;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(184, 93, 56, 0.6);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
         }
 
         .scroll-hint {
             position: absolute;
-            bottom: 30px;
+            bottom: 35px;
             z-index: 3;
             font-size: 0.75rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.85);
             animation: bounce 2s infinite;
         }
 
-        /* --- STICKY NAVIGATION BAR (TAB SELECTOR) --- */
+        /* --- STICKY NAVIGATION BAR --- */
         .nav-container {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(250, 248, 245, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
-            padding: 10px 0;
+            padding: 5px 0;
         }
 
         .nav-tabs {
@@ -163,11 +161,11 @@
             margin: 0 auto;
             overflow-x: auto;
             padding: 0 10px;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
 
         .nav-tabs::-webkit-scrollbar {
-            display: none; /* Safari & Chrome */
+            display: none;
         }
 
         .tab-btn {
@@ -175,11 +173,11 @@
             border: none;
             color: var(--text-muted);
             font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.82rem;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 12px 18px;
+            padding: 16px 20px;
             cursor: pointer;
             white-space: nowrap;
             position: relative;
@@ -187,34 +185,35 @@
         }
 
         .tab-btn:hover {
-            color: var(--accent);
+            color: var(--text-dark);
         }
 
         .tab-btn.active {
             color: var(--accent);
+            font-weight: 600;
         }
 
         .tab-btn.active::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 18px;
-            right: 18px;
-            height: 2px;
+            bottom: 6px;
+            left: 20px;
+            right: 20px;
+            height: 1.5px;
             background-color: var(--accent);
             border-radius: 2px;
         }
 
         /* --- MENU SECTION --- */
         .menu-section {
-            max-width: 1000px;
-            margin: 40px auto 80px auto;
-            padding: 0 20px;
+            max-width: 900px;
+            margin: 50px auto 80px auto;
+            padding: 0 24px;
         }
 
         .menu-category {
             display: none;
-            animation: fadeIn 0.5s ease-in-out forwards;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .menu-category.active {
@@ -223,184 +222,171 @@
 
         .category-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .category-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-style: italic;
-            font-weight: 500;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .category-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 1px;
-            background-color: var(--accent-light);
-        }
-
-        /* --- GRID AND CARDS --- */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        @media (max-width: 768px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        .menu-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: all var(--transition-speed);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            border-color: var(--accent-light);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-            gap: 10px;
-        }
-
-        .item-name-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .item-title {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 400;
+            letter-spacing: 1px;
             color: var(--text-dark);
         }
 
+        /* --- ELEGANT LIST LAYOUT (NOT CLUNKY CARDS) --- */
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px 50px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-list {
+                grid-template-columns: 1fr;
+                gap: 26px;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .category-title {
+                font-size: 2rem;
+            }
+        }
+
+        .menu-item-row {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all var(--transition-speed);
+            padding-bottom: 6px;
+        }
+
+        .item-main-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .item-title-col {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color var(--transition-speed);
+        }
+
+        .item-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #dbd6cb;
+            margin: 0 5px;
+            position: relative;
+            top: -4px;
+        }
+
         .item-price {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--accent-dark);
             white-space: nowrap;
+            transition: color var(--transition-speed);
         }
 
         .item-description {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-top: 4px;
+            padding-right: 20px;
+            line-height: 1.5;
+            transition: color var(--transition-speed);
         }
 
-        /* --- PHOTO ICON & THUMBNAIL IN CARD --- */
+        /* Hover micro-animation */
+        .menu-item-row:hover .item-title {
+            color: var(--accent-dark);
+        }
+        .menu-item-row:hover .item-description {
+            color: var(--text-dark);
+        }
+
+        /* Badge Foto */
         .photo-badge {
-            background-color: rgba(184, 93, 56, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(184, 93, 56, 0.2);
+            background-color: rgba(190, 156, 121, 0.1);
+            color: var(--accent-dark);
+            border: 1px solid rgba(190, 156, 121, 0.2);
             border-radius: 4px;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 600;
-            padding: 2px 6px;
+            padding: 1px 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
             cursor: pointer;
             transition: all var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
         }
 
         .photo-badge:hover {
             background-color: var(--accent);
             color: #ffffff;
+            border-color: var(--accent);
         }
 
-        .card-thumbnail-wrapper {
-            position: relative;
-            margin-top: 10px;
-            border-radius: 8px;
+        /* Thumbnail piccolo ed elegante a fianco della descrizione */
+        .item-with-image {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .item-text-part {
+            flex-grow: 1;
+        }
+
+        .item-thumbnail-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
             overflow: hidden;
+            flex-shrink: 0;
             cursor: pointer;
-            height: 120px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-top: 5px;
         }
 
-        .card-thumbnail {
+        .item-thumbnail {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform var(--transition-speed);
         }
 
-        .card-thumbnail-wrapper:hover .card-thumbnail {
-            transform: scale(1.05);
-        }
-
-        .card-thumbnail-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.15);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-        }
-
-        .card-thumbnail-wrapper:hover .card-thumbnail-overlay {
-            opacity: 1;
-        }
-
-        .card-thumbnail-overlay span {
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: rgba(0,0,0,0.5);
-            padding: 4px 10px;
-            border-radius: 4px;
-            backdrop-filter: blur(2px);
+        .item-thumbnail-wrapper:hover .item-thumbnail {
+            transform: scale(1.1);
         }
 
         /* --- GALLERY SECTION (LA NOSTRA LOCATION) --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         @media (max-width: 768px) {
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 16px;
             }
         }
 
@@ -412,23 +398,23 @@
 
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             cursor: pointer;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .gallery-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .gallery-item:hover .gallery-img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
         .gallery-overlay {
@@ -437,46 +423,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 70%);
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 75%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 15px;
-            opacity: 0.9;
-            transition: opacity var(--transition-speed);
+            padding: 16px;
         }
 
         .gallery-title {
             color: #ffffff;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 2px;
         }
 
         .gallery-desc {
             color: rgba(255,255,255,0.75);
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* --- FOOTER & INFO --- */
         .info-box {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            margin-top: 40px;
+            background-color: transparent;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0 20px 0;
+            margin-top: 50px;
             text-align: center;
         }
 
         .info-title {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent);
+            color: var(--accent-dark);
             margin-bottom: 12px;
         }
 
@@ -484,9 +467,11 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* --- LIGHTBOX MODAL --- */
+        /* --- LIGHTBOX MODAL WITH NAVIGATION --- */
         .lightbox {
             display: none;
             position: fixed;
@@ -495,8 +480,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 14, 12, 0.95);
-            backdrop-filter: blur(8px);
+            background-color: rgba(15, 14, 12, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -509,13 +495,22 @@
             opacity: 1;
         }
 
-        .lightbox-content {
+        .lightbox-img-container {
+            position: relative;
             max-width: 90%;
-            max-height: 80%;
-            border-radius: 8px;
+            max-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 6px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
+            transform: scale(0.97);
+            transition: transform 0.3s ease, opacity 0.15s ease-out;
         }
 
         .lightbox.show .lightbox-content {
@@ -524,20 +519,23 @@
 
         .lightbox-caption {
             color: #ffffff;
-            margin-top: 20px;
+            margin-top: 24px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             text-align: center;
+            padding: 0 20px;
         }
 
         .lightbox-desc {
-            color: #b5b1a9;
-            font-size: 0.85rem;
-            margin-top: 5px;
+            color: #bfae98;
+            font-size: 0.82rem;
+            margin-top: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
+            padding: 0 20px;
+            max-width: 600px;
         }
 
         .close-btn {
@@ -545,14 +543,64 @@
             top: 30px;
             right: 30px;
             color: #ffffff;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             cursor: pointer;
             transition: color var(--transition-speed);
             line-height: 1;
+            z-index: 1010;
         }
 
         .close-btn:hover {
-            color: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* Frecce Lightbox */
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.05);
+            color: #ffffff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--transition-speed);
+            z-index: 1005;
+            user-select: none;
+        }
+
+        .lightbox-arrow:hover {
+            background: rgba(255,255,255,0.15);
+            color: var(--accent);
+        }
+
+        .prev-btn {
+            left: -80px;
+        }
+
+        .next-btn {
+            right: -80px;
+        }
+
+        @media (max-width: 900px) {
+            .lightbox-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+                background: rgba(0,0,0,0.4);
+            }
+            .prev-btn {
+                left: 10px;
+            }
+            .next-btn {
+                right: 10px;
+            }
         }
 
         /* --- VINYL ROTATING AUDIO PLAYER --- */
@@ -564,12 +612,13 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 8px 18px 8px 8px;
             border-radius: 100px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             cursor: pointer;
             user-select: none;
             transition: all var(--transition-speed);
@@ -577,31 +626,28 @@
 
         .vinyl-player-widget:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
         }
 
         .vinyl-wrapper {
             position: relative;
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Giradischi Vinile */
         .vinyl-disc {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: radial-gradient(circle, #b85d38 0%, #b85d38 18%, #1c1c1c 20%, #2c2c2c 40%, #151515 50%, #2c2c2c 70%, #111111 100%);
+            background: radial-gradient(circle, #be9c79 0%, #be9c79 18%, #1e1e1e 20%, #2a2a2a 40%, #151515 50%, #2a2a2a 70%, #111111 100%);
             border: 2px solid #333333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             position: relative;
-            transition: transform var(--transition-speed);
         }
 
-        /* Linee concentriche del vinile */
         .vinyl-disc::before {
             content: '';
             position: absolute;
@@ -609,7 +655,7 @@
             left: 10%;
             right: 10%;
             bottom: 10%;
-            border: 1px solid rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.02);
             border-radius: 50%;
         }
 
@@ -620,28 +666,26 @@
             left: 25%;
             right: 25%;
             bottom: 25%;
-            border: 1px solid rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.02);
             border-radius: 50%;
         }
 
-        /* Buco centrale del vinile */
         .vinyl-center {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background-color: var(--bg-color);
             z-index: 2;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* Il braccetto del giradischi (tonearm) */
         .tonearm {
             position: absolute;
             top: -2px;
             right: -2px;
-            width: 18px;
-            height: 28px;
+            width: 16px;
+            height: 26px;
             transform-origin: 80% 10%;
             transform: rotate(-25deg);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -652,17 +696,17 @@
         .tonearm-svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
         }
 
-        /* Animazione rotazione */
+        /* Animazioni vinile */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
         .vinyl-player-widget.playing .vinyl-disc {
-            animation: spin 3.5s linear infinite;
+            animation: spin 4s linear infinite;
         }
 
         .vinyl-player-widget.playing .tonearm {
@@ -675,7 +719,7 @@
         }
 
         .audio-status {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -683,7 +727,7 @@
         }
 
         .audio-title {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--text-dark);
             white-space: nowrap;
@@ -693,7 +737,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(25px);
             }
             to {
                 opacity: 1;
@@ -702,17 +746,16 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
         }
 
-        /* Mobile specific layout fixes for vinyl player */
         @media (max-width: 480px) {
             .vinyl-player-widget {
                 bottom: 20px;
@@ -720,16 +763,16 @@
                 padding: 6px;
             }
             .audio-info {
-                display: none; /* Nasconde il testo su piccoli schermi per salvare spazio */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- AUDIO ELEMENT -->
+    <!-- CLASICAL ACCUOSTIC GUITAR AUDIO FROM ARCHIVE.ORG -->
     <audio id="bg-audio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        <source src="https://soundimage.org/wp-content/uploads/2014/08/Key-West-Sunset.mp3" type="audio/mpeg">
     </audio>
 
     <!-- FLOATING VINYL PLAYER WIDGET -->
@@ -738,15 +781,11 @@
             <div class="vinyl-disc">
                 <div class="vinyl-center"></div>
             </div>
-            <!-- Braccetto del giradischi -->
             <div class="tonearm" id="tonearm">
                 <svg class="tonearm-svg" viewBox="0 0 30 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Base pivot -->
                     <circle cx="22" cy="8" r="5" fill="#a0a0a0" stroke="#707070" stroke-width="1.5"/>
                     <circle cx="22" cy="8" r="2" fill="#404040"/>
-                    <!-- Braccio metallico -->
                     <path d="M22 8 L8 38 L10 40" stroke="#b0b0b0" stroke-width="2.5" stroke-linecap="round"/>
-                    <!-- Testina/Puntina -->
                     <rect x="5" y="38" width="7" height="10" rx="1.5" fill="#e06060" transform="rotate(15 8 43)"/>
                     <line x1="6" y1="46" x2="10" y2="46" stroke="#333" stroke-width="1"/>
                 </svg>
@@ -754,7 +793,7 @@
         </div>
         <div class="audio-info">
             <span class="audio-status" id="audio-status-text">Musica Spenta</span>
-            <span class="audio-title">Sottofondo Rilassante</span>
+            <span class="audio-title">Chitarra Rilassante</span>
         </div>
     </div>
 
@@ -793,42 +832,38 @@
             <div class="category-header">
                 <h2 class="category-title">Antipasti</h2>
             </div>
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Antipasto Casa</span>
-                            <span class="item-price">12,00 €</span>
-                        </div>
-                        <p class="item-description">Selezione di specialità calde e fredde locali preparate dallo chef.</p>
+            <div class="menu-list">
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Antipasto Casa</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">12,00 €</span>
                     </div>
+                    <p class="item-description">Selezione di specialità calde e fredde locali preparate dallo chef.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Tagliere Salumi e Formaggi</span>
-                            <span class="item-price">15,00 €</span>
-                        </div>
-                        <p class="item-description">Selezione di formaggi freschi e stagionati e salumi tradizionali del territorio.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Tagliere Salumi e Formaggi</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">15,00 €</span>
                     </div>
+                    <p class="item-description">Selezione di formaggi freschi e stagionati e salumi tradizionali del territorio.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Patate e Würstel</span>
-                            <span class="item-price">5,00 €</span>
-                        </div>
-                        <p class="item-description">Croccanti patatine fritte servite calde con würstel tagliati al momento.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Patate e Würstel</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">5,00 €</span>
                     </div>
+                    <p class="item-description">Croccanti patatine fritte servite calde con würstel tagliati al momento.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Patatine Fritte</span>
-                            <span class="item-price">4,00 €</span>
-                        </div>
-                        <p class="item-description">Porzione classica di patatine fritte dorate.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Patatine Fritte</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">4,00 €</span>
                     </div>
+                    <p class="item-description">Porzione classica di patatine fritte dorate.</p>
                 </div>
             </div>
         </section>
@@ -838,188 +873,171 @@
             <div class="category-header">
                 <h2 class="category-title">Le Nostre Pizze</h2>
             </div>
-            <div class="menu-grid">
+            <div class="menu-list">
                 <!-- MARINARA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Marinara</span>
-                            <span class="item-price">5,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, aglio, origano, olio extravergine.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Marinara</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">5,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, aglio, origano, olio extravergine.</p>
                 </div>
                 <!-- MARGHERITA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Margherita</span>
-                            <span class="item-price">6,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella di prima scelta, olio, basilico fresco.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Margherita</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">6,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella di prima scelta, olio, basilico fresco.</p>
                 </div>
                 <!-- DIAVOLA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Diavola</span>
-                            <span class="item-price">8,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, salame piccante locale, 'nduja calabrese.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Diavola</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">8,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, salame piccante locale, 'nduja calabrese.</p>
                 </div>
-                <!-- ESTIVA (CON FOTO) -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <div class="item-name-wrapper">
-                                <span class="item-title">Estiva</span>
-                                <span class="photo-badge" onclick="openLightbox('assets/pizza-estiva.jpeg', 'Pizza Estiva', 'Pomodoro, mozzarella, rucola, pomodorini, grana a scaglie, prosciutto crudo, glassa di aceto.')">
-                                    📸 Foto
-                                </span>
+                <!-- ESTIVA (CON FOTO PICCOLA A FIANCO) -->
+                <div class="menu-item-row">
+                    <div class="item-with-image">
+                        <div class="item-text-part">
+                            <div class="item-main-info">
+                                <div class="item-title-col">
+                                    <span class="item-title">Estiva</span>
+                                    <span class="photo-badge" onclick="event.stopPropagation();">
+                                        📸 Foto
+                                    </span>
+                                </div>
+                                <span class="item-dots"></span>
+                                <span class="item-price">12,00 €</span>
                             </div>
-                            <span class="item-price">12,00 €</span>
+                            <p class="item-description">Pomodoro, mozzarella, rucola fresca, pomodorini, scaglie di grana, prosciutto crudo, glassa di aceto balsamico.</p>
                         </div>
-                        <p class="item-description">Pomodoro, mozzarella, rucola fresca, pomodorini, scaglie di grana, prosciutto crudo, glassa di aceto balsamico.</p>
-                    </div>
-                    <!-- Anteprima immagine cliccabile incorporata -->
-                    <div class="card-thumbnail-wrapper" onclick="openLightbox('assets/pizza-estiva.jpeg', 'Pizza Estiva', 'Pomodoro, mozzarella, rucola, pomodorini, grana a scaglie, prosciutto crudo, glassa di aceto.')">
-                        <img src="assets/pizza-estiva.jpeg" alt="Pizza Estiva" class="card-thumbnail">
-                        <div class="card-thumbnail-overlay">
-                            <span>Ingrandisci 🔍</span>
+                        <div class="item-thumbnail-wrapper">
+                            <img src="assets/pizza-estiva.jpeg" alt="Pizza Estiva" class="item-thumbnail">
                         </div>
                     </div>
                 </div>
                 <!-- CAPRESE -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Caprese</span>
-                            <span class="item-price">8,00 €</span>
-                        </div>
-                        <p class="item-description">Base bianca, mozzarella a fette, pomodorini freschi, basilico, origano.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Caprese</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">8,00 €</span>
                     </div>
+                    <p class="item-description">Base bianca, mozzarella a fette, pomodorini freschi, basilico, origano.</p>
                 </div>
                 <!-- COTTO E FUNGHI -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Cotto e Funghi</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, prosciutto cotto di alta qualità, funghi prataioli.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Cotto e Funghi</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, prosciutto cotto di alta qualità, funghi prataioli.</p>
                 </div>
                 <!-- WÜRSTEL E PATATINE -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Würstel e Patatine</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, würstel a fette, patatine fritte dorate.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Würstel e Patatine</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, würstel a fette, patatine fritte dorate.</p>
                 </div>
                 <!-- BUFALA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Bufala</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella di bufala campana DOP, olio, basilico.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Bufala</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella di bufala campana DOP, olio, basilico.</p>
                 </div>
                 <!-- TONNO E CIPOLLA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Tonno e Cipolla</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, tonno all'olio d'oliva, cipolla rossa calabrese.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Tonno e Cipolla</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, tonno all'olio d'oliva, cipolla rossa calabrese.</p>
                 </div>
                 <!-- NAPOLETANA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Napoletana</span>
-                            <span class="item-price">8,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, acciughe dissalate, olive nere.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Napoletana</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">8,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, acciughe dissalate, olive nere.</p>
                 </div>
                 <!-- FORMAGGIOSA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Formaggiosa</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Mozzarella, gorgonzola cremoso, fontina saporita, parmigiano reggiano.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Formaggiosa</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Mozzarella, gorgonzola cremoso, fontina saporita, parmigiano reggiano.</p>
                 </div>
                 <!-- PIKY -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Piky</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, 'nduja piccante, olive verdi, tonno, cipolla.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Piky</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, 'nduja piccante, olive verdi, tonno, cipolla.</p>
                 </div>
                 <!-- PITIPI PATAPÀ -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Pitipi Patapà</span>
-                            <span class="item-price">10,00 €</span>
-                        </div>
-                        <p class="item-description">Mozzarella, radicchio trevigiano, gorgonzola DOP, grana a scaglie, pancetta tesa all'uscita.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Pitipi Patapà</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">10,00 €</span>
                     </div>
+                    <p class="item-description">Mozzarella, radicchio trevigiano, gorgonzola DOP, grana a scaglie, pancetta tesa all'uscita.</p>
                 </div>
                 <!-- PATATE E PANCETTA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Patate e Pancetta</span>
-                            <span class="item-price">9,00 €</span>
-                        </div>
-                        <p class="item-description">Mozzarella, patate al forno profumate al rosmarino, pancetta croccante.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Patate e Pancetta</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">9,00 €</span>
                     </div>
+                    <p class="item-description">Mozzarella, patate al forno profumate al rosmarino, pancetta croccante.</p>
                 </div>
                 <!-- CAPRICCIOSA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Capricciosa</span>
-                            <span class="item-price">10,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, prosciutto cotto, funghi, carciofini sott'olio, olive nere.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Capricciosa</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">10,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, prosciutto cotto, funghi, carciofini sott'olio, olive nere.</p>
                 </div>
                 <!-- SPECK E FUNGHI -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Speck e Funghi</span>
-                            <span class="item-price">10,00 €</span>
-                        </div>
-                        <p class="item-description">Mozzarella, speck dell'Alto Adige, funghi misti saltati, scamorza affumicata.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Speck e Funghi</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">10,00 €</span>
                     </div>
+                    <p class="item-description">Mozzarella, speck dell'Alto Adige, funghi misti saltati, scamorza affumicata.</p>
                 </div>
                 <!-- VEGETARIANA -->
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Vegetariana</span>
-                            <span class="item-price">10,00 €</span>
-                        </div>
-                        <p class="item-description">Pomodoro, mozzarella, melanzane grigliate, zucchine fresche, peperoni dolci.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Vegetariana</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">10,00 €</span>
                     </div>
+                    <p class="item-description">Pomodoro, mozzarella, melanzane grigliate, zucchine fresche, peperoni dolci.</p>
                 </div>
             </div>
         </section>
@@ -1029,42 +1047,38 @@
             <div class="category-header">
                 <h2 class="category-title">Bevande & Cantina</h2>
             </div>
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Analcolici Lattina / Vetro</span>
-                            <span class="item-price">da 2,50 €</span>
-                        </div>
-                        <p class="item-description">Coca-Cola, Coca Zero, Fanta, Chinotto Lurisia, gassosa San Pellegrino.</p>
+            <div class="menu-list">
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Analcolici Lattina / Vetro</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">da 2,50 €</span>
                     </div>
+                    <p class="item-description">Coca-Cola, Coca Zero, Fanta, Chinotto Lurisia, gassosa San Pellegrino.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Birre in bottiglia</span>
-                            <span class="item-price">da 3,00 €</span>
-                        </div>
-                        <p class="item-description">Nastro Azzurro, Ichnusa non filtrata, Birre artigianali Gradisca Amarcord.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Birre in bottiglia</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">da 3,00 €</span>
                     </div>
+                    <p class="item-description">Nastro Azzurro, Ichnusa non filtrata, Birre artigianali Gradisca Amarcord.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">I Vini della Casa & Locali</span>
-                            <span class="item-price">Selez.</span>
-                        </div>
-                        <p class="item-description">Librandi Critone Bianco, Rosé doc, Cirò Rosso o Vino Sfuso della Casa (Bianco/Rosso).</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">I Vini della Casa & Locali</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">Selez.</span>
                     </div>
+                    <p class="item-description">Librandi Critone Bianco, Rosé doc, Cirò Rosso o Vino Sfuso della Casa (Bianco/Rosso).</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Le Bollicine</span>
-                            <span class="item-price">da 10,00 €</span>
-                        </div>
-                        <p class="item-description">Prosecco Naonis, Cà del Cino, Berlucchi Cuvée Imperiale.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Le Bollicine</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">da 10,00 €</span>
                     </div>
+                    <p class="item-description">Prosecco Naonis, Cà del Cino, Berlucchi Cuvée Imperiale.</p>
                 </div>
             </div>
         </section>
@@ -1074,33 +1088,30 @@
             <div class="category-header">
                 <h2 class="category-title">Desserts & Fine Serata</h2>
             </div>
-            <div class="menu-grid">
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Dessert del Giorno</span>
-                            <span class="item-price">6,00 €</span>
-                        </div>
-                        <p class="item-description">Le nostre torte fatte in casa e dolci freschi al cucchiaio del giorno.</p>
+            <div class="menu-list">
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Dessert del Giorno</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">6,00 €</span>
                     </div>
+                    <p class="item-description">Le nostre torte fatte in casa e dolci freschi al cucchiaio del giorno.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">I Tartufi di Pizzo</span>
-                            <span class="item-price">5,00 €</span>
-                        </div>
-                        <p class="item-description">Il celebre tartufo gelato di Pizzo: al Pistacchio, Nocciola Imbottita o Tartufo Bianco.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">I Tartufi di Pizzo</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">5,00 €</span>
                     </div>
+                    <p class="item-description">Il celebre tartufo gelato di Pizzo: al Pistacchio, Nocciola Imbottita o Tartufo Bianco.</p>
                 </div>
-                <div class="menu-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="item-title">Liquori & Digestivi</span>
-                            <span class="item-price">da 3,00 €</span>
-                        </div>
-                        <p class="item-description">Amaro Silano, Borsci S. Marzano, Vecchio Amaro del Capo, Jägermeister, Limoncello artigianale, Grappa 903 barricata.</p>
+                <div class="menu-item-row">
+                    <div class="item-main-info">
+                        <span class="item-title">Liquori & Digestivi</span>
+                        <span class="item-dots"></span>
+                        <span class="item-price">da 3,00 €</span>
                     </div>
+                    <p class="item-description">Amaro Silano, Borsci S. Marzano, Vecchio Amaro del Capo, Jägermeister, Limoncello artigianale, Grappa 903 barricata.</p>
                 </div>
             </div>
         </section>
@@ -1112,7 +1123,7 @@
             </div>
             <div class="gallery-grid">
                 <!-- IMMAGINE 1 -->
-                <div class="gallery-item" onclick="openLightbox('assets/sunset-terrace.jpeg', 'Terrazza al Tramonto', 'Un suggestivo aperitivo in giardino vista mare al calar del sole.')">
+                <div class="gallery-item">
                     <img src="assets/sunset-terrace.jpeg" alt="Terrazza al Tramonto" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Terrazza al Tramonto</span>
@@ -1120,7 +1131,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 2 -->
-                <div class="gallery-item" onclick="openLightbox('assets/archway-night.jpeg', 'Il Portale Illuminato', 'L\'arco antico rivestito di gelsomini ed edera, sapientemente illuminato di notte.')">
+                <div class="gallery-item">
                     <img src="assets/archway-night.jpeg" alt="Il Portale Illuminato" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Il Portale</span>
@@ -1128,7 +1139,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 3 -->
-                <div class="gallery-item" onclick="openLightbox('assets/chairs-sunset.jpeg', 'Colori al Crepuscolo', 'Sedute colorate disposte verso l\'orizzonte del mare al tramonto.')">
+                <div class="gallery-item">
                     <img src="assets/chairs-sunset.jpeg" alt="Colori al Crepuscolo" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Sedie sul Mare</span>
@@ -1136,7 +1147,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 4 -->
-                <div class="gallery-item" onclick="openLightbox('assets/archway-rooster.jpeg', 'L\'Arco e il Gallo', 'Dettaglio del nostro arco in pietra di giorno con scorcio di campagna e fioriture di gerani.')">
+                <div class="gallery-item">
                     <img src="assets/archway-rooster.jpeg" alt="L'Arco e il Gallo" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Dettagli di Campagna</span>
@@ -1144,7 +1155,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 5 -->
-                <div class="gallery-item" onclick="openLightbox('assets/sea-view-day.jpeg', 'L\'Affaccio sul Mare', 'Splendido affaccio diurno tra le ortensie e gli ulivi del borgo.')">
+                <div class="gallery-item">
                     <img src="assets/sea-view-day.jpeg" alt="L'Affaccio sul Mare" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Affaccio Vista Mare</span>
@@ -1152,15 +1163,15 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 6 -->
-                <div class="gallery-item" onclick="openLightbox('assets/vintage-car.jpeg', 'Eleganza senza Tempo', 'Un antico maggiolino bianco decorato a festa parcheggiato sul viale del borgo.')">
+                <div class="gallery-item">
                     <img src="assets/vintage-car.jpeg" alt="Eleganza senza Tempo" class="gallery-img">
                     <div class="gallery-overlay">
-                        <span class="gallery-title">Vettura d\'Epoca</span>
+                        <span class="gallery-title">Vettura d'Epoca</span>
                         <span class="gallery-desc">Momenti Speciali</span>
                     </div>
                 </div>
                 <!-- IMMAGINE 7 -->
-                <div class="gallery-item" onclick="openLightbox('assets/lawn-night.jpeg', 'Il Prato Sotto le Stelle', 'Atmosfera serale in giardino con fili di luci calde tesi tra le palme.')">
+                <div class="gallery-item">
                     <img src="assets/lawn-night.jpeg" alt="Il Prato Sotto le Stelle" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Giardino Illuminato</span>
@@ -1168,7 +1179,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 8 -->
-                <div class="gallery-item" onclick="openLightbox('assets/courtyard-night.jpeg', 'Corte di Pietra', 'La corte interna in pietra e mattoni a vista avvolta da una rilassante luce serale.')">
+                <div class="gallery-item">
                     <img src="assets/courtyard-night.jpeg" alt="Corte di Pietra" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">La Corte Interna</span>
@@ -1176,7 +1187,7 @@
                     </div>
                 </div>
                 <!-- IMMAGINE 9 -->
-                <div class="gallery-item" onclick="openLightbox('assets/millstone-wall.jpeg', 'La Mola Antica', 'Muro in pietra a secco con una mola antica incastonata tra i gelsomini.')">
+                <div class="gallery-item">
                     <img src="assets/millstone-wall.jpeg" alt="La Mola Antica" class="gallery-img">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Mola Tradizionale</span>
@@ -1186,8 +1197,8 @@
             </div>
         </section>
 
-        <!-- NOTE E ALLERGIE DI DEFAULT -->
-        <div class="info-box">
+        <!-- NOTE E ALLERGIE DI DEFAULT (Hiding on 'location' tab via script) -->
+        <div class="info-box" id="general-info-box">
             <h3 class="info-title">Informazioni Generali</h3>
             <p class="info-text">
                 Coperto: 2,00 € • Ingredienti aggiuntivi: +1,00 € • Aggiunta mozzarella di bufala: +2,00 €<br>
@@ -1196,10 +1207,15 @@
         </div>
     </main>
 
-    <!-- --- LIGHTBOX MODAL --- -->
+    <!-- --- LIGHTBOX MODAL WITH ARROW NAVIGATION AND SWIPE --- -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+        <button class="lightbox-arrow prev-btn" onclick="prevImage(event)">&#10094;</button>
+        <button class="lightbox-arrow next-btn" onclick="nextImage(event)">&#10095;</button>
+        
+        <div class="lightbox-img-container">
+            <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+        </div>
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <div class="lightbox-desc" id="lightbox-desc"></div>
     </div>
@@ -1210,10 +1226,61 @@
         const widget = document.getElementById('vinyl-widget');
         const statusText = document.getElementById('audio-status-text');
         const tonearm = document.getElementById('tonearm');
+        
         let audioStarted = false;
+        let currentGalleryIndex = 0;
+        let galleryImages = []; // List of all images: {src, title, desc}
 
-        // Imposta un volume delicato (30%)
-        audio.volume = 0.25;
+        // Imposta un volume molto basso per l'ascolto rilassante (20%)
+        audio.volume = 0.20;
+
+        // Inizializza l'array delle immagini per lo scorrimento del Lightbox
+        function initGallery() {
+            galleryImages = [];
+            
+            // 1. Aggiungiamo le immagini della galleria location
+            const locationItems = document.querySelectorAll('.gallery-item');
+            locationItems.forEach((item, index) => {
+                const img = item.querySelector('.gallery-img');
+                const title = item.querySelector('.gallery-title').innerText;
+                const desc = item.querySelector('.gallery-desc').innerText;
+                
+                galleryImages.push({
+                    src: img.getAttribute('src'),
+                    title: title,
+                    desc: desc
+                });
+                
+                // Mappa il click all'apertura del Lightbox con l'indice
+                item.setAttribute('onclick', `openGallery(${index})`);
+            });
+
+            // 2. Aggiungiamo la Pizza Estiva alla fine del carosello
+            const pizzaThumbWrapper = document.querySelector('.item-thumbnail-wrapper');
+            const pizzaBadge = document.querySelector('.photo-badge');
+            
+            if (pizzaThumbWrapper) {
+                const pizzaSrc = 'assets/pizza-estiva.jpeg';
+                const pizzaTitle = 'Pizza Estiva';
+                const pizzaDesc = 'Pomodoro, mozzarella, rucola, pomodorini, scaglie di grana, prosciutto crudo, glassa di aceto.';
+                
+                galleryImages.push({
+                    src: pizzaSrc,
+                    title: pizzaTitle,
+                    desc: pizzaDesc
+                });
+                
+                const pizzaIndex = galleryImages.length - 1;
+                
+                pizzaThumbWrapper.setAttribute('onclick', `openGallery(${pizzaIndex})`);
+                if (pizzaBadge) {
+                    pizzaBadge.setAttribute('onclick', `openGallery(${pizzaIndex}); event.stopPropagation();`);
+                }
+            }
+        }
+
+        // Esegui l'inizializzazione della galleria all'avvio
+        window.addEventListener('DOMContentLoaded', initGallery);
 
         // Gestore del player audio Vinile (Play/Pause)
         function toggleAudio() {
@@ -1234,7 +1301,7 @@
             }
         }
 
-        // Avvia la musica all'interazione dell'utente con la pagina (es. al click sul pulsante Hero)
+        // Avvia la musica alla prima interazione reale con la pagina
         function startAudioOnInteract() {
             if (!audioStarted) {
                 audio.play()
@@ -1247,28 +1314,35 @@
             }
         }
 
-        // Funzione per scambiare le categorie del menu (Tabbed interface)
+        // Navigazione tra le categorie
         function switchCategory(categoryId) {
-            // Rimuovi classe 'active' da tutti i pulsanti tab
+            // Aggiorna i pulsanti attivi
             const tabs = document.querySelectorAll('.tab-btn');
             tabs.forEach(tab => tab.classList.remove('active'));
 
-            // Aggiungi classe 'active' al tab corretto
-            // Troviamo il bottone in base all'argomento
             const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(categoryId));
             if (activeTab) activeTab.classList.add('active');
 
-            // Rimuovi classe 'active' da tutte le categorie
+            // Aggiorna le categorie visibili
             const categories = document.querySelectorAll('.menu-category');
             categories.forEach(cat => cat.classList.remove('active'));
 
-            // Mostra la categoria selezionata
             const selectedCategory = document.getElementById(categoryId);
             if (selectedCategory) {
                 selectedCategory.classList.add('active');
             }
 
-            // Scrolla delicatamente all'inizio del menu se siamo più in basso
+            // Nascondi le Informazioni Generali se siamo su "La Nostra Location"
+            const infoBox = document.getElementById('general-info-box');
+            if (infoBox) {
+                if (categoryId === 'location') {
+                    infoBox.style.display = 'none';
+                } else {
+                    infoBox.style.display = 'block';
+                }
+            }
+
+            // Scroll fluido all'inizio del menu se siamo scesi
             const menuRoot = document.getElementById('menu-root');
             const rect = menuRoot.getBoundingClientRect();
             if (rect.top < 0) {
@@ -1276,33 +1350,87 @@
             }
         }
 
-        // Gestione Finestra Modale Lightbox per le Immagini
-        function openLightbox(imgSrc, title, description) {
+        /* --- LIGHTBOX MULTI-IMMAGINE E SWIPE --- */
+        function openGallery(index) {
+            currentGalleryIndex = index;
+            updateLightboxContent();
+            
             const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Blocca lo scorrimento della pagina
+        }
+
+        function updateLightboxContent() {
+            const item = galleryImages[currentGalleryIndex];
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxTitle = document.getElementById('lightbox-caption');
             const lightboxDesc = document.getElementById('lightbox-desc');
 
-            lightboxImg.src = imgSrc;
-            lightboxTitle.innerText = title;
-            lightboxDesc.innerText = description;
+            // Transizione a dissolvenza
+            lightboxImg.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImg.src = item.src;
+                lightboxTitle.innerText = item.title;
+                lightboxDesc.innerText = item.desc;
+                lightboxImg.style.opacity = '1';
+            }, 100);
+        }
 
-            lightbox.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Blocca lo scorrimento
+        function nextImage(event) {
+            if (event) event.stopPropagation();
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            updateLightboxContent();
+        }
+
+        function prevImage(event) {
+            if (event) event.stopPropagation();
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightboxContent();
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('show');
-            document.body.style.overflow = 'auto'; // Ripristina lo scorrimento
+            document.body.style.overflow = 'auto'; // Sblocca lo scorrimento della pagina
         }
 
-        // Chiude la modale con il tasto ESC
+        // Supporto per i tasti freccia della tastiera ed ESC
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeLightbox();
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('show')) {
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                } else if (event.key === 'ArrowRight') {
+                    nextImage();
+                } else if (event.key === 'ArrowLeft') {
+                    prevImage();
+                }
             }
         });
+
+        // Supporto swipe su dispositivi mobili
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const lightboxEl = document.getElementById('lightbox');
+
+        lightboxEl.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightboxEl.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 55;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                nextImage(); // Swipe verso sinistra -> immagine successiva
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                prevImage(); // Swipe verso destra -> immagine precedente
+            }
+        }
     </script>
 </body>
 </html>
